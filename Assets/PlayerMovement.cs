@@ -10,7 +10,11 @@ public class PlayerMovement : MonoBehaviour
     private float timeDis = 3f;
     // This is the player's speed
     public float speed = 5f;
-    
+    public GameObject Text;
+    private void Awake()
+    {
+        Text.SetActive(false);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -71,11 +75,22 @@ public class PlayerMovement : MonoBehaviour
            
         }
     }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Trigger")
+        {
+
+            Text.SetActive(false);
+
+
+        }
+    }
     //Disable script Function
     void Disable(float time)
     {
         enabled = false;
         anim.SetBool("IsWalking", false);
+        Text.SetActive(true);
         CancelInvoke("Enable");
        
         Invoke("Enable", time);
