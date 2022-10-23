@@ -67,22 +67,17 @@ public class PlayerMovement : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Trigger")
-        {
-            
+        {           
             peachanim.SetBool("IsSurp", true);
             //print("hit");
-            Disable(timeDis);
-           
+            Disable(timeDis);          
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == "Trigger")
         {
-
             Text.SetActive(false);
-
-
         }
     }
     //Disable script Function
