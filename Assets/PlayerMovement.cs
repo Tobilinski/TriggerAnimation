@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     public Animator anim;
     public Animator peachanim;
-    
+    private float timeDis = 3f;
     // This is the player's speed
     public float speed = 5f;
     
     // Update is called once per frame
     void Update()
     {
+       
         // Dev debug tools
         /*if (Input.GetKey(KeyCode.Space))
         {
@@ -54,8 +56,27 @@ public class PlayerMovement : MonoBehaviour
     {
         if(other.gameObject.tag == "Trigger")
         {
+            
             peachanim.SetBool("IsSurp", true);
             //print("hit");
+            Disable(timeDis);
+           
         }
     }
+    //Disable scrip Function
+    void Disable(float time)
+    {
+        enabled = false;
+        anim.SetBool("IsWalking", false);
+        CancelInvoke("Enable");
+       
+        Invoke("Enable", time);
+
+    }
+
+    void Enable()
+    {
+        enabled = true;
+    }
+
 }
