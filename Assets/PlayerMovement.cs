@@ -14,13 +14,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
         // Dev debug tools
         /*if (Input.GetKey(KeyCode.Space))
         {
             peachanim.SetBool("IsSurp", true);
             
         }*/
+
+
+
 
         // Get the horizontal input from the player
         float horiz = Input.GetAxis("Horizontal");
@@ -29,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position += Vector3.right * horiz * speed * Time.deltaTime;
 
            // If the player is moving horizontally
-        if(Mathf.Abs(horiz) > 0)
+       if(Mathf.Abs(horiz) > 0)
         {
             // Play the run animation
             anim.SetBool("IsWalking", true);
@@ -41,14 +44,19 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("IsWalking", false);
 
         }
+
+
+
+
+
              // This code flips the character
         if (horiz < 0)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            transform.localScale = new Vector3(-0.61f, 0.61f, 0.61f);
         }
         else if (horiz > 0)
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            transform.localScale = new Vector3(0.61f, 0.61f, 0.61f);
         }
     }
     //Trigger detction and tirgger of animtation
@@ -63,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
            
         }
     }
-    //Disable scrip Function
+    //Disable script Function
     void Disable(float time)
     {
         enabled = false;
