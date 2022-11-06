@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(0.61f, 0.61f, 0.61f);
         }
     }
-    //Trigger detction and tirgger of animtation
+    //Trigger detction and trigger of animation
     public void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Trigger")
