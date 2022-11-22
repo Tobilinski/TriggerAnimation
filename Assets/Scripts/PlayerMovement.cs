@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     // This is the player's speed
     public float speed = 5f;
     public GameObject Text;
-    public ParticleSystem Dust;
+
     private void Awake()
     {
         Text.SetActive(false);
@@ -49,10 +49,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("IsWalking", false);
 
         }
-        if (Input.GetKey(KeyCode.A))
-        {
-            Dust.Play();
-        }
+        
 
 
 
