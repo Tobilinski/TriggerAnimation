@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     // This is the player's speed
     public float speed = 5f;
     public GameObject Text;
+    public ParticleSystem Dust;
     private void Awake()
     {
         Text.SetActive(false);
@@ -48,7 +49,10 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("IsWalking", false);
 
         }
-
+        if (Input.GetKey(KeyCode.A))
+        {
+            Dust.Play();
+        }
 
 
 
@@ -67,10 +71,12 @@ public class PlayerMovement : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Trigger")
-        {           
+        {
+           
             peachanim.SetBool("IsSurp", true);
             //print("hit");
-            Disable(timeDis);          
+            Disable(timeDis); 
+            
         }
     }
     private void OnTriggerExit2D(Collider2D other)
